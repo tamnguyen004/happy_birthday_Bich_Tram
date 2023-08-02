@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hiệu ứng Nhấp vào màn hình</title>
+  <style>
+    /* CSS để ẩn hình ảnh ban đầu */
+    #randomImage {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: fall 2s ease-in-out forwards;
+    }
+
+    /* Định nghĩa hiệu ứng rơi xuống */
+    @keyframes fall {
+      0% {
+        top: -200px;
+        opacity: 0;
+        transform: translateX(-50%) scale(1.2);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+      }
+    }
+
+    /* CSS để căn giữa nút */
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+  <script>
+    function showRandomImage() {
+      // Mảng chứa đường dẫn đến các hình ảnh ngẫu nhiên
+      var images = [
+      'img/1.jpg',
+      'img/2.jpg',
+      'img/3.jpg',
+      'img/4.jpg',
+      'img/5.jpg',
+      'img/6.jpg',
+      'img/7.jpg',
+      'img/8.jpg',
+      'img/9.jpg',
+      'img/10.jpg',
+      'img/11.jpg',
+      'img/12.jpg',
+      'img/13.jpg',
+      'img/14.jpg',
+      'img/15.jpg',
+      'img/16.jpg',
+      'img/17.jpg',
+      'img/18.jpg',
+      'img/19.jpg',
+      'img/20.jpg',
+      'img/21.jpg',
+      'img/22.jpg',
+      'img/23.jpg',
+      'img/24.jpg',
+      'img/25.jpg',
+      'img/26.jpg',
+      'img/27.jpg',
+      'img/28.jpg',
+      'img/29.jpg',
+      'img/30.jpg',
+      'img/31.jpg',
+      'img/32.jpg',
+      'img/33.jpg',
+      'img/34.jpg',
+      'img/35.jpg',
+      'img/36.jpg',
+      'img/37.jpg',
+      ];
+
+      // Chọn một hình ảnh ngẫu nhiên từ mảng
+      var randomIndex = Math.floor(Math.random() * images.length);
+      var randomImage = images[randomIndex];
+
+      // Lấy đối tượng hình ảnh trong HTML và cập nhật đường dẫn mới
+      var imgElement = document.getElementById('randomImage');
+      imgElement.src = randomImage;
+
+      // Hiển thị hình ảnh
+      imgElement.style.display = 'block';
+
+      // Xóa hình ảnh sau khi hoàn thành hiệu ứng
+      setTimeout(function() {
+        imgElement.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+</head>
+<body>
+  <div class="center">
+    <div onclick="showRandomImage()">
+      <img src="qua.jpg" alt="qua" style="height: 400px; width: 400px;">
+    </div>
+  </div>
+  <img id="randomImage" src="" alt="Tấm hình ngẫu nhiên">
+</body>
+</html>
